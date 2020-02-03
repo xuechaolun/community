@@ -84,12 +84,8 @@ WSGI_APPLICATION = 'community.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # 指定连接 MySQL
-        'NAME': 'community_db',        # 刚刚创建的数据库
-        'USER': 'root',        # 使用 root 账户
-        'PASSWORD': '',        # 因为实验楼环境中的 MySQL 没有密码，所以这里为空
-        'HOST': '127.0.0.1',
-        'PORT': '3306',        # MySQL 的固定端口号
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -118,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'#'UTC'
 
 USE_I18N = True
 
