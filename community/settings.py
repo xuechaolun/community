@@ -132,6 +132,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+STATIC_ROOT=os.path.join(BASE_DIR,"static_common").replace('\\', '/')
 
 # custom user model
 
@@ -149,11 +150,7 @@ LOGOUT_REDIRECT_URL = '/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-# mudia
+# media
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
-
-#在最底追加
-STATIC_ROOT=os.path.join(BASE_DIR,"/static/")
-
