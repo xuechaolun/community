@@ -8,3 +8,6 @@ dependent package：
     pip                 20.0.2 
     pytz                2019.3 
   
+command：
+    python manage.py migrate
+    python manage.py collectstatic
