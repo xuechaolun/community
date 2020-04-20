@@ -2,11 +2,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import ProfileDetailView, UpdateProfileView
+from .views import ProfileDetailView, UpdateProfileView, setpassword
 
 app_name = 'user_profile'
 
 urlpatterns = [
+    path('setpassword/',setpassword, name='setpassword'),
     path('user/', include(([
         path('<int:user_id>/', ProfileDetailView.as_view(), name='profile'),
         path('<int:user_id>/edit', UpdateProfileView.as_view(), name='update_profile'),
