@@ -59,4 +59,23 @@ class UpdateProfileView(UpdateView):
         return reverse('user_profile:profile', self.kwargs.get('user_id'))
 
 
+@login_required
+def setpassword(request):
+    title = 'Change Password'
+    # username = request.user.username
+    user = request.user
+    if request.method == 'POST':
+        oldpassword = request.POST.get('oldpassword','')
+        newpassword = request.POST.get('newpassword','')
+        if user.check_password(oldpassword):
+            user.set_password(newpassword)
+            user.save()
+            tips = ''
+            # time.sleep(3)
+            return redirect('home')
+        else:
+            tips = '原密码输入有误，修改失败。若修改成功，将自动跳转到登录界面'
+
+    return render(request,'user_profile/setpassword.html',locals())
+
 
